@@ -32,12 +32,6 @@ print('''===============  help list  ===============
    -check    | check proxies
 =====================================================''')
 
-url = input("Masukan URL : ")
-v = input("Type (4/5/http): ")
-f = input("Masukan Proxy (proxy.txt): ")
-s = input("Masukan Time : ")
-t = input ("Thread : ")
-
 acceptall = [
 		"Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\n",
 		"Accept-Encoding: gzip, deflate\r\n",
@@ -614,14 +608,14 @@ def main():
 	for n,args in enumerate(sys.argv):
 		if args == "-help" or args =="-h":
 			help =True
-		if args==f"{url}":
+		if args=="url":
 			ParseUrl(sys.argv[n+1])
 		if args=="-m" or args=="-mode":
 			mode = sys.argv[n+1]
 			if mode not in ["cc","post","head"]:#,"slow"]:
 				print("> -m/-mode argument error")
 				return
-		if args ==f"{v}":
+		if args =="v":
 			proxy_ver = sys.argv[n+1]
 			if proxy_ver == "4":
 				proxy_type = 4
@@ -640,7 +634,7 @@ def main():
 			else:
 				print("> -b argument error")
 				return
-		if args == f"{t}":
+		if args == "-t":
 			try:
 				thread_num = int(sys.argv[n+1])
 			except:
@@ -651,13 +645,13 @@ def main():
 		if args == "-data":
 			data = open(sys.argv[n+1],"r",encoding="utf-8", errors='ignore').readlines()
 			data = ' '.join([str(txt) for txt in data])
-		if args == f"{f}":
+		if args == "-f":
 			out_file = sys.argv[n+1]
 		if args == "-down":
 			download_socks=True
 		if args == "-check":
 			check_proxies = True
-		if args == f"{s}":
+		if args == "-s":
 			try:
 				period = int(sys.argv[n+1])
 			except:
