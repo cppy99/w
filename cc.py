@@ -608,14 +608,14 @@ def main():
 	for n,args in enumerate(sys.argv):
 		if args == "-help" or args =="-h":
 			help =True
-		if args=="url":
+		if args=="-url":
 			ParseUrl(sys.argv[n+1])
 		if args=="-m" or args=="-mode":
 			mode = sys.argv[n+1]
 			if mode not in ["cc","post","head"]:#,"slow"]:
 				print("> -m/-mode argument error")
 				return
-		if args =="v":
+		if args =="-v":
 			proxy_ver = sys.argv[n+1]
 			if proxy_ver == "4":
 				proxy_type = 4
